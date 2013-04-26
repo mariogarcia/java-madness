@@ -4,6 +4,9 @@ package challenge;
  * This interface represents a challenge. For me it was really hard to implement
  * when I face it first time. So I decided to do it no matter what it took.
  *
+ * I may have forgotten some of the contracts of this type of list but I think
+ * here there are the most important ones.
+ *
  * @author @marioggar
  *
  **/
