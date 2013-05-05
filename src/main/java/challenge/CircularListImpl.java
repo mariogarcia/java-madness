@@ -80,12 +80,12 @@ class CircularListImpl<E> implements CircularList<E>{
 	 * @return a Nullable instance object carrying the inserted element
 	 *
 	 **/
-	public Nullable<E> add(E added){
+	public CircularList<E> add(E added){
 		current = new Nullable<E>(added);
 		list.add(current);
 		int index = list.indexOf(current);
 		listIterator = index <= 1 ? list.listIterator() : list.listIterator(index - 1);
-		return current;
+		return this;
 	}
 
 	/**
@@ -97,7 +97,7 @@ class CircularListImpl<E> implements CircularList<E>{
 	 * @return the added element
 	 *
 	 **/
-	public Nullable<E> insertAfter(E pointer,E added){
+	public CircularList<E> insertAfter(E pointer,E added){
 	 /* Wrapping current with Nullable */
 		current = new Nullable<E>(added);
 	 /* Building the pointer */
@@ -113,7 +113,7 @@ class CircularListImpl<E> implements CircularList<E>{
 	 /* Setting the iterator */
 		listIterator = list.listIterator(list.indexOf(current));
 	 /* Returning current */
-		return current;
+		return this;
 	}
 
 	/**
