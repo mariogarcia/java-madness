@@ -8,9 +8,10 @@ class CircularListSpecification extends Specification{
 		setup: "Creating an instance of circular list"
 			def list = new CircularListImpl<String>()
 		when: "Inserting some elements"
-			list.add("John")	
-			list.add("Peter")	
-			list.add("Malloc")	
+			list.
+				add("John").
+				add("Peter").
+				add("Malloc")	
 		and: "Trying to get neMalloMalloccxt, previous and current"
 			def current = list.current()
 			def next = list.next()
@@ -29,14 +30,17 @@ class CircularListSpecification extends Specification{
 		setup: "Creating a given instance of a circular list"
 			def list = new CircularListImpl()
 		when: "Adding elements"
-			list.add("John")
-			list.add("Peter")
-			list.add("Malloc")
-			list.add("Andrew")
-			list.add("Troy")
+			def sameList = 
+			  list.
+				add("John").
+				add("Peter").
+				add("Malloc").
+				add("Andrew").
+				add("Troy")
+		and: "How many members so far"
+			sameList.size() == 5
 		and: "Inserting after a given element"
 			list.insertAfter("Malloc","Hugo")
-			println list.list
 		then: "Malloc should be found applying previous()"	
 			list.size() == 6
 		and: "The previous value should be"
@@ -44,5 +48,11 @@ class CircularListSpecification extends Specification{
 			list.previous().getValue() == "Malloc"
 	}
 
-
+	def "Asking for something doesn't exist"(){
+		when: "Creating the list"
+			def list = new CircularListImpl<String>()
+		then: "Asking for next"
+			list.next().isNull()
+			list.previous().isNull()
+	}
 }

@@ -10,7 +10,7 @@ package challenge;
  * @author @marioggar
  *
  **/
-interface CircularList<E> {
+interface CircularList<E>{
 
 	/**
 	 * This method returns the next element in the list and moves the header
@@ -44,7 +44,7 @@ interface CircularList<E> {
 	 * @return a Nullable instance object carrying the inserted element
 	 *
 	 **/
-	public Nullable<E> add(E added);
+	public CircularList<E> add(E added);
 	/**
 	 * This method inserts the second parameter right after where the first parameter is
 	 * within the list
@@ -54,7 +54,7 @@ interface CircularList<E> {
 	 * @return the added element
 	 *
 	 **/
-	public Nullable<E> insertAfter(E pointer,E added);
+	public CircularList<E> insertAfter(E pointer,E added);
 	/**
 	 * This method helps to know whether the list is empty or not
 	 *
